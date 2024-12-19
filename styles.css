@@ -1,0 +1,385 @@
+/* Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background: #333;
+    color: #ffffff;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    color: #ff8b1e;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #ff8b1e;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo do hambúrguer */
+.hamburger {
+    display: none; /* Inicialmente escondido */
+    font-size: 30px;
+    cursor: pointer;
+    color: #ff8b1e;
+}
+
+/* Exibir o ícone de hambúrguer apenas em telas pequenas */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .menu {
+        display: none; /* Esconde o menu por padrão */
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .menu li {
+        margin: 1rem 0;
+    }
+
+    .menu li a {
+        color: #ff8b1e;
+        text-decoration: none;
+    }
+
+    .menu.active {
+        display: flex; /* Exibe o menu quando a classe "active" for adicionada */
+    }
+}
+
+/* Estilo do menu em telas grandes */
+@media (min-width: 769px) {
+    .menu {
+        display: flex;
+    }
+}
+
+
+/* Seção "Quem Sou Eu" */
+#quem-sou-eu {
+    background: #f4f4f4;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+#quem-sou-eu h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+.about-me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff8b1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-me p {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: left;
+    max-width: 400px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .about-me {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-me p {
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Modal para foto de perfil */
+#profileModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+#profileModalImg {
+    width: 80%;
+    max-width: 500px;
+}
+
+#profileCaption {
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* Fechar o modal */
+#closeProfile {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#closeProfile:hover,
+#closeProfile:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Galeria */
+#galeria {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+#galeria h2 {
+    margin-bottom: 1rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.modal-content {
+    width: 80%;
+    max-width: 700px;
+    margin: auto;
+    object-fit: contain;
+}
+
+/* Estilo geral */
+.category {
+    margin-bottom: 3rem;
+}
+
+.category h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Botões de navegação */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.3s ease;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Botão de fechar (X) */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff6347;
+}
+
+/* Rodapé */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+footer a {
+    color: #ff8b1e;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Redes Sociais */
+.social-icons {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons a[aria-label="Facebook"]:hover {
+    color: #1877f2;
+}
+
+.social-icons a[aria-label="Instagram"]:hover {
+    color: #dd17dd;
+}
+
+.social-icons a[aria-label="Twitter"]:hover {
+    color: #1da1f2;
+}
+
+/* Botão WhatsApp */
+.whatsapp-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #25d366;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.whatsapp-btn i {
+    margin-right: 0.5rem;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe57;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    footer .container {
+        padding: 0 1rem;
+    }
+
+    .social-icons a {
+        font-size: 1.5rem;
+    }
+}
